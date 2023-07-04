@@ -1,4 +1,4 @@
-package com.tj.edu.practice;
+package com.tj.edu.practice1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

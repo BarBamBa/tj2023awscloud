@@ -1,4 +1,4 @@
-package com.tj.edu.practice;
+package com.tj.edu.practice1;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
