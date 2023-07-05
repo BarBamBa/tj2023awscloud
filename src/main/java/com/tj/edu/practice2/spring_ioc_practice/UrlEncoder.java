@@ -1,7 +1,11 @@
-package com.tj.edu.practice2.ioc;
+package com.tj.edu.practice2.spring_ioc_practice;
+
+import com.tj.edu.practice2.spring_ioc_practice.IEncoder;
+import org.springframework.stereotype.Component;
 
 import java.net.URLEncoder;
 
+@Component
 public class UrlEncoder implements IEncoder {
 
     @Override
@@ -14,7 +18,6 @@ public class UrlEncoder implements IEncoder {
         }
     }
 
-    @Override
     public byte[] encodeByte(String message) {
         try {
             return URLEncoder.encode(message, "UTF-8").getBytes();

@@ -1,10 +1,12 @@
-package com.tj.edu.practice2.ioc;
+package com.tj.edu.practice2.spring_ioc_practice;
+
+
 
 /**
  * Encoder 종류는 굉장히 많다.
  * ex) Base64, UTF8, ASCII, URL인코딩....
  */
-public class Encoder implements IEncoder {
+public class Encoder implements IEncoder{
 
     private IEncoder iEncoder;
 
@@ -17,8 +19,5 @@ public class Encoder implements IEncoder {
         return iEncoder.encodeString(message);
     }
 
-    @Override
-    public byte[] encodeByte(String message) {
-        return iEncoder.encodeByte(message);
-    }
+    public byte[] encodeByte(String message) { return iEncoder.encodeByte(message); }
 }

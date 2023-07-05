@@ -1,10 +1,12 @@
 package com.tj.edu.practice2.spring_ioc;
 
-import com.tj.edu.practice2.ioc.IEncoder;
+import com.tj.edu.practice2.spring_ioc.IEncoder;
+import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.Base64.Encoder;
 
+@Component
 public class Base64Encoder implements IEncoder {
 
     @Override
@@ -13,6 +15,7 @@ public class Base64Encoder implements IEncoder {
         return Base64.getEncoder().encodeToString(message.getBytes());
     }
 
+    @Override
     public byte[] encodeByte(String message) {
         // Base64 인코딩 ///////////////////////////////////////////////////
         Encoder encoder = Base64.getEncoder();

@@ -1,7 +1,11 @@
-package com.tj.edu.practice2.ioc;
+package com.tj.edu.practice2.spring_ioc;
+
+import com.tj.edu.practice2.spring_ioc.IEncoder;
+import org.springframework.stereotype.Component;
 
 import java.net.URLEncoder;
 
+@Component
 public class UrlEncoder implements IEncoder {
 
     @Override

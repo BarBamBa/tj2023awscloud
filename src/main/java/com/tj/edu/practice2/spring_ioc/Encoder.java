@@ -17,5 +17,8 @@ public class Encoder implements IEncoder {
         return iEncoder.encodeString(message);
     }
 
-    public byte[] encodeByte(String message) { return iEncoder.encodeByte(message); }
+    @Override
+    public byte[] encodeByte(String message) {
+        return iEncoder.encodeByte(message);
+    }
 }
