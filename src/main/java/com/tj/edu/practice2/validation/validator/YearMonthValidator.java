@@ -20,9 +20,9 @@ public class YearMonthValidator implements ConstraintValidator<YearMonth, String
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        // pattern에 매칭되는 값만 통과하게, default 는 "YYYYMM"
+        // pattern에 매칭되는 값만 통과하게, default 는 "yyyyMMdd"
         try {
-            LocalDate.parse(value + "01", DateTimeFormatter.ofPattern(this.pattern));
+            LocalDate.parse(value + 01, DateTimeFormatter.ofPattern(this.pattern));
         } catch (Exception e) {
             return false;
         }
