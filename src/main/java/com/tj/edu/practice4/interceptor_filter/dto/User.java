@@ -28,13 +28,4 @@ public class User {
     public void setPw(String pw) {
         this.pw = pw;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", pw='" + pw + '\'' +
-                '}';
-    }
 }

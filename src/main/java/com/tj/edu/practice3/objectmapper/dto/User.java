@@ -6,10 +6,19 @@ import java.util.List;
 
 public class User {
     private String name;
-    @JsonProperty("oldage")
+
+    @JsonProperty("age")
     private int age;
 
     private List<Car> userCars;
+
+    public List<Car> getUserCars() {
+        return userCars;
+    }
+
+    public void setUserCars(List<Car> userCars) {
+        this.userCars = userCars;
+    }
 
     public String getName() {
         return name;
@@ -25,14 +34,6 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public List<Car> getUserCars() {
-        return userCars;
-    }
-
-    public void setUserCars(List<Car> userCars) {
-        this.userCars = userCars;
     }
 
     @Override

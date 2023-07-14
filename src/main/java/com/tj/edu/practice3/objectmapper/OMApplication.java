@@ -12,7 +12,6 @@ import com.tj.edu.practice3.objectmapper.dto.User;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class OMApplication {
     public static void main(String[] args) throws JsonProcessingException {
         // ObjectMapper사용 용도(그 외 gson 등이 있다)
@@ -39,7 +38,6 @@ public class OMApplication {
         user.setUserCars(carList);
 
         ObjectMapper objectMapper = new ObjectMapper();
-
         // java object model -> json
         String json = objectMapper.writeValueAsString(user);
         System.out.println(json);
@@ -58,7 +56,5 @@ public class OMApplication {
         // json -> java object model
         ObjectNode objectNode = (ObjectNode)jsonNode;
         System.out.println(objectNode.toPrettyString());
-
     }
 }
-

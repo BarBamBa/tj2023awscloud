@@ -1,6 +1,5 @@
 package com.tj.edu.practice2.spring_ioc;
 
-import com.tj.edu.practice2.spring_ioc.IEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Base64;

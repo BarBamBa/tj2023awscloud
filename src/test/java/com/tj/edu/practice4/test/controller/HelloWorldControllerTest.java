@@ -17,13 +17,18 @@ class HelloWorldControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @DisplayName("helloWorld-GET HTTP Method 테스트")
+    @DisplayName("helloWorld-GET HTTP Method 성공테스트")
     @Test
-    public void helloWorld() throws Exception {
+    public void helloWorldSuccess() throws Exception {
+//        mockMvc.perform(MockMvcRequestBuilders.get("/helloworld1"))
+//                .andDo(print())
+//                .andExpect(status().is4xxClientError())
+//                .andExpect(content().string(""));
+
         mockMvc.perform(MockMvcRequestBuilders.get("/helloworld"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string("hello world!"));
+                .andExpect(content().string("hello-world"));
     }
 
     @DisplayName("helloWorld-GET HTTP Method 오류테스트")
@@ -33,5 +38,12 @@ class HelloWorldControllerTest {
                 .andDo(print())
                 .andExpect(status().is4xxClientError())
                 .andExpect(content().string(""));
+
+//        mockMvc.perform(MockMvcRequestBuilders.get("/helloworld"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("hello-world"));
     }
+
+
 }
