@@ -4,46 +4,87 @@ package com.tj.edu.practice5.jpa.model;
 import com.tj.edu.practice5.jpa.model.enums.Nation;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+//@Getter
+//@Setter
 @Data
-@ToString
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Entity
-@Table(name = "member", uniqueConstraints = {@UniqueConstraint(columnNames = {"colTest2"})})
-public class Member {
+@Table(name = "member")
+//@EntityListeners(value = { MemberEntityListener.class, TimeAuditEntityListener.class})
+//@EntityListeners(value = {AuditingEntityListener.class, MemberEntityListener.class})
+@EntityListeners(value = {MemberEntityListener.class})
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @GeneratedValue
     private Long id;
-    //    @NonNull
-    @Column(nullable = false)
+//    @NonNull
+    @Column(nullable = false, columnDefinition = "varchar(5)")
+    @ToString.Exclude
     private String name;
+    @Column(columnDefinition = "varchar(100)")
     private String email;
 
 //    @Column(name = "colTest2", unique = true)
-    @Column(name = "colTest2", insertable = false, updatable = false)
-    private Integer test2;
+//    @Column(name = "colTest2", insertable = false, updatable = false)
+////    @Transient
+//    private Integer test2;
 
-    @Column(columnDefinition = "DATETIME comment '생성시간'")
-    private LocalDateTime createAt;
-
-    @Column(columnDefinition = "DATETIME DEFAULT now() comment '수정시간'", insertable = false, nullable = false)
-    private LocalDateTime updateAt;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Address> address;
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private List<Address> address;
 
     private Boolean male;
 
-    @Transient // 일시적으로 자바 내부에서 쓰려는 컬럼 데이터(DB연결X)
+    @Transient
     private String testData;
 
-//    @Column(columnDefinition = "ENUM")
-//    @Enumerated(value = EnumType.STRING)
+//    @Column(columnDefinition = "varchar(100)")
+    @Enumerated(value = EnumType.STRING)
     private Nation nation;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "member_id", insertable = false, updatable = false)
+    @ToString.Exclude
+    private List<MemberLogHistory> memberLogHistories;
+
+//    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
+    @JoinColumn(name = "member_id")
+    @ToString.Exclude
+    private List<Review> reviews;
+
+    @PreRemove
+    public void preDelete1() {
+        System.out.println(">>> preDelete1()");
+    }
+    @PostPersist
+    public void afterInsert1() {
+        System.out.println(">>> afterInsert1()");
+    }
+    @PostUpdate
+    public void afterUpdate1() {
+        System.out.println(">>> afterUpdate1()");
+    }
+    @PostRemove
+    public void afterDelete1() {
+        System.out.println(">>> afterDelete1()");
+    }
+    @PostLoad
+    public void afterSelect1() {
+        System.out.println(">>> afterSelect1()");
+    }
 }

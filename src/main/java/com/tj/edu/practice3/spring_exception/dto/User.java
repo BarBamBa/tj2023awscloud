@@ -9,8 +9,6 @@ public class User {
     @Min(1)
     private int age;
 
-
-
     public String getName() {
         return name;
     }
@@ -29,7 +27,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "user{" +
+        return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/authapi")
 @AuthUser
 public class AuthApiController {
-
     @GetMapping("/get")
     public String get() {
         return "authapi/get호출";
     }
-
 }

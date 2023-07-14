@@ -6,7 +6,7 @@ package com.tj.edu.practice2.ioc;
  */
 public class Encoder implements IEncoder {
 
-    private IEncoder iEncoder;
+    private final IEncoder iEncoder;
 
     public Encoder(IEncoder iEncoder) {
         this.iEncoder = iEncoder;

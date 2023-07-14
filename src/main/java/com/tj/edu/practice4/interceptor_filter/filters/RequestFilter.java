@@ -5,15 +5,14 @@ import jakarta.servlet.annotation.WebFilter;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/api/*"})
+@WebFilter(urlPatterns = { "/api/*" })
 public class RequestFilter implements Filter {
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("----------doFilter Start----------");
+        System.out.println("doFilter 시작-----------------------");
 
         chain.doFilter(request, response);
 
-        System.out.println("----------doFilter Finished----------");
+        System.out.println("doFilter 마침-----------------------");
     }
 }

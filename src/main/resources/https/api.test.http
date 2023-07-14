@@ -1,4 +1,0 @@
-### HTTP GET메소드 실행 테스트
-GET http://localhost:8080/test1
-Content-Type text/plain
-

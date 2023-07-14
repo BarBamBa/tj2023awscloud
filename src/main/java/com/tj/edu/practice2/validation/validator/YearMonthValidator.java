@@ -15,19 +15,19 @@ public class YearMonthValidator implements ConstraintValidator<YearMonth, String
     public void initialize(YearMonth constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
 
+        // YearMonth 어노테이션에 있는 pattern메소드 값으로 세팅하여 사용
         this.pattern = constraintAnnotation.pattern();
     }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        // pattern에 매칭되는 값만 통과하게, default 는 "yyyyMMdd"
+        // pattern디폴트 값은 'YYYYMM'
         try {
-            LocalDate.parse(value + 01, DateTimeFormatter.ofPattern(this.pattern));
+            LocalDate.parse(value + "01", DateTimeFormatter.ofPattern(this.pattern));
         } catch (Exception e) {
             return false;
         }
         return true;
     }
-
 
 }
