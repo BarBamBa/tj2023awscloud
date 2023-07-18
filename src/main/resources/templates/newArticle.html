@@ -15,14 +15,15 @@
         <div class="col-lg-8">
             <article>
                 <header>
-                    <label for="title1" class="form-label">제목</label>
-                    <input type="text" class="form-control" id="title1" placeholder="제목을 입력하세요.">
+                    <label for="title" class="form-label">제목</label>
+                    <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요.">
                 </header>
                 <section>
-                    <label for="content1" class="form-label">내용</label>
-                    <textarea class="form-control" id="content1" rows="3"></textarea>
+                    <label for="content" class="form-label">내용</label>
+                    <textarea class="form-control" id="content" rows="3"></textarea>
                 </section>
-                <button type="button" class="btn btn-primary" id="create-btn">등록</button>
+                <button th:if="${article.id} != null" type="button" class="btn btn-primary" id="modify-btn">수정</button>
+                <button th:if="${article.id} == null" type="button" class="btn btn-primary" id="create-btn">등록</button>
             </article>
         </div>
     </div>

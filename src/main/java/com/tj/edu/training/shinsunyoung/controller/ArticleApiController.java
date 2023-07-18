@@ -3,6 +3,7 @@ package com.tj.edu.training.shinsunyoung.controller;
 import com.tj.edu.training.shinsunyoung.model.Article;
 import com.tj.edu.training.shinsunyoung.model.dto.AddArticleRequest;
 import com.tj.edu.training.shinsunyoung.model.dto.ArticleResponse;
+import com.tj.edu.training.shinsunyoung.model.dto.UpdateArticleRequest;
 import com.tj.edu.training.shinsunyoung.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 public class ArticleApiController {
 
     private final ArticleService articleService;
+
 
     @PostMapping("/api/articles")
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
@@ -44,12 +46,21 @@ public class ArticleApiController {
                 .body(new ArticleResponse(article));
     }
 
-    @DeleteMapping("api/articles/delete/{id}")
+    @DeleteMapping("api/articles/{id}")
     public ResponseEntity<Void> removeArticle(@PathVariable long id) {
         articleService.delete(id);
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id,
+                                                 @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = articleService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedArticle);
     }
 
 }
