@@ -6,11 +6,13 @@ application:
   title: thejoeun company
 
 spring:
+  thymeleaf:
+    cache: false
   sql:
     init:
       mode: always
         # always: embeded db가 아닌 외부 db 사용시 spring boot를 실행할때 마다 data.sql schema.sql import.sql을 항상 실행
-      # never: data.sql schema.sql import.sql을 실행하지 않음
+      # never: data.sql schema.sql 을 실행하지 않음
       encoding: utf-8
   datasource:
     #    generate-unique-name: false
