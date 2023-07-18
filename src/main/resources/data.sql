@@ -3,3 +3,15 @@ insert into member(`id`, `name`, `email`, `create_at`, `update_at`) values (2, '
 insert into member(`id`, `name`, `email`, `create_at`, `update_at`) values (3, '홍길동', 'leesunsin@gmail.com', now(), now());
 insert into member(`id`, `name`, `email`, `create_at`, `update_at`) values (4, '강감찬', 'amsun@thejoeun.com', now(), now());
 insert into member(`id`, `name`, `email`, `create_at`, `update_at`) values (5, '홍길동', 'ryukwansun@thejoeun.com', now(), now());
+
+insert into users(`id`, `name`, `email`) values (1, '홍길동1', 'ho1@abc.com');
+insert into users(`id`, `name`, `email`) values (2, '홍길동2', 'ho2@abc.com');
+insert into users(`id`, `name`, `email`) values (3, '홍길동3', 'ho3@abc.com');
+
+insert into publisher(`id`, `name`, `create_at`, `update_at`) values (1, '더조은아카데미', now(), now());
+insert into publisher(`id`, `name`, `create_at`, `update_at`) values (2, '한빛출판사', now(), now());
+
+insert into book(`id`, `name`, `publisher_id`, `create_at`, `update_at`) values (1, '재미있는 자바책', 1, now(), now());
+insert into book(`id`, `name`, `publisher_id`, `create_at`, `update_at`) values (2, '재미있는 DB', 1, now(), now());
+insert into book(`id`, `name`, `publisher_id`, `create_at`, `update_at`) values (3, '재미있는 REACT', 1, now(), now());
+insert into book(`id`, `name`, `publisher_id`, `create_at`, `update_at`) values (4, '재미있는 자바책', 2, now(), now());

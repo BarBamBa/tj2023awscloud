@@ -31,9 +31,9 @@ class LombokTestApplicationTest {
         // user builder이용한 user 객체 생성
         // null pointer exception을 방지하는 기능
         User user4 = User.builder()
-                    .name("홍길동2")
-                    .email("aaa@asdf.com")
-                    .createAt(LocalDateTime.now()).build();
+                .name("홍길동2")
+                .email("aaa@asdf.com")
+                .createAt(LocalDateTime.now()).build();
 
         System.out.println("-------------------------------------------------------------");
         System.out.println(user4.getEmail());
